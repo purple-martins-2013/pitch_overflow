@@ -11,7 +11,7 @@ end
 gem 'faker'
 
 group :test do
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'capybara'
 end
 # Use sqlite3 as the database for Active Record
