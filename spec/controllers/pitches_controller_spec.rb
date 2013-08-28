@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe PitchesController do
 
+  let(:pitch) { create(:pitch) }
+
   describe "pitches#index" do
 
     it "@pitches should contain all saved pitches" do
-      pitch = create(:pitch)
       get :index
       expect(assigns(:pitches)).to eq([pitch])
     end
@@ -18,7 +19,11 @@ describe PitchesController do
   end
 
   describe "pitches#show" do
-    it "should have a successful HTTP response"
+    it 'exposes the right pitch' do
+      get :show, { id: pitch.id }
+      expect(assigns(:pitch)).to eq pitch
+    end
+
   end
 
   describe "pitches#new" do

@@ -1,6 +1,6 @@
 PitchOverflow::Application.routes.draw do
 
-  resources :pitches, only: [:index] do
+  resources :pitches, only: [:index, :show] do
     resources :reactions, only: [:create]
   end
 
