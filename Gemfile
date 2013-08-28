@@ -7,6 +7,13 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
 end
+
+gem 'faker'
+
+group :test do
+  gem 'factory_girl'
+  gem 'capybara'
+end
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
