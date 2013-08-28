@@ -35,11 +35,13 @@ describe Pitch do
 
     context "when a pitch has votes" do
       
-      pitch.upvote!
-      pitch.upvote!
-      pitch.downvote!
-      pitch.upvote!
-
+      before do
+        pitch.upvote!
+        pitch.upvote!
+        pitch.downvote!
+        pitch.upvote!
+      end
+      
       it "returns the sum of the upvotes and downvotes" do
         pitch.score.should eq 2
       end
