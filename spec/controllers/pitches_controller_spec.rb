@@ -4,11 +4,17 @@ describe PitchesController do
 
   describe "pitches#index" do
 
-    it "should have a successful HTTP response" do
+    it "@pitches should contain all saved pitches" do
       pitch = create(:pitch)
       get :index
       expect(assigns(:pitches)).to eq([pitch])
     end
+
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
+    
   end
 
   describe "pitches#show" do
