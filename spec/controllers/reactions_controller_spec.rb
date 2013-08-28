@@ -21,8 +21,8 @@ describe ReactionsController do
         }
       end
 
-      it "should redirect to the root page" do
-        expect(response).to redirect_to(root_path(pitch))
+      it "should redirect to the show pitch page" do
+        expect(response).to redirect_to(pitch_path(pitch))
       end
 
       it "should create a new reaction" do
