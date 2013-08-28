@@ -1,12 +1,10 @@
 class Pitch < ActiveRecord::Base
 
-  attr_reader :title, :content, :score
+  before_save :titleize_title
 
   has_many :reactions
   validates_presence_of :title
   validates_presence_of :content
-
-  before_save :titleize_title
 
   def upvote!
     self.score += 1
