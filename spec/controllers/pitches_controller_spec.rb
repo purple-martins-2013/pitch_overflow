@@ -5,20 +5,18 @@ describe PitchesController do
   describe "pitches#index" do
 
     it "should have a successful HTTP response" do
+      pitch = create(:pitch)
       get :index
-      response.status.should eq 200
+      expect(assigns(:pitches)).to eq([pitch])
     end
   end
 
   describe "pitches#show" do
-    it "should have a successful HTTP response" do
-      get :show
-      response.status.should eq 200
-    end
+    it "should have a successful HTTP response"
   end
 
   describe "pitches#new" do
-    it "should have a successful HTTP response" do
+    xit "should have a successful HTTP response" do
       get :new
       response.status.should eq 200
     end

@@ -1,8 +1,6 @@
 PitchOverflow::Application.routes.draw do
 
-  resources :pitches do
-    resources :reactions
-  end
+  resources :pitches, only: [:index]
 
   root :to => "pitches#index"
   # The priority is based upon order of creation: first created -> highest priority.
