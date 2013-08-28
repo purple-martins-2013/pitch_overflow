@@ -29,6 +29,14 @@ describe ReactionsController do
         expect(Reaction.last.content).to eq reaction.content
       end
 
+      it "should not accept a :score parameter" do
+        post :create, { pitch_id: pitch.id, reaction: {
+            content: reaction.content, score: 10000000
+          }
+        }
+        expect(Reaction.last.score).to eq 0
+      end
+
     end
   end
 end
