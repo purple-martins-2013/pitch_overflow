@@ -16,4 +16,11 @@ describe Reaction do
     it { should_not be_valid }
   end
 
+  describe "default values" do
+    it 'should have a default score of zero' do
+      reaction = Reaction.create(content: 'fofo')
+      expect(reaction.score).to eq 0
+    end
+  end
+
 end
