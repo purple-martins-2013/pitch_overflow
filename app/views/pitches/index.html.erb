@@ -1,3 +1,7 @@
+<div>
+  <%= link_to "Create a New Pitch", new_pitch_path %>
+</div>
+
 <% @pitches.each do |pitch| %>
   <p><%= pitch.title %></p>
 <% end %>
