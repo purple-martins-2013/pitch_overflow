@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Pitch do
 
-  let(:pitch) { Pitch.create(title: "my awesome startup idea", content: content }
+  let(:pitch) { Pitch.create(title: "my awesome startup idea", content: content) }
   let(:content) { "Lorem ipsum dolor sit amet, laboris in ante ligula fusce, vel convallis at convallis nulla. Erat mi cras luctus sit, mauris elit nibh auctor nisl. Fermentum ipsum nisl ipsum nulla, proin amet ut tempus, rhoncus felis mi senectus, ornare diam ut semper." }
 
   it "titleizes the title before saving" do
