@@ -11,4 +11,9 @@ describe Reaction do
   it {should respond_to(:content)}
   it {should respond_to(:score)}
 
+  context "when content is blank" do
+    before { @reaction.content = nil }
+    it { should_not be_valid }
+  end
+
 end
