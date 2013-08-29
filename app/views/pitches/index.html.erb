@@ -3,5 +3,5 @@
 </div>
 
 <% @pitches.each do |pitch| %>
-  <p><%= link_to pitch.title, pitch_path(pitch) %></p>
+  <p><%= pitch.score %> <%= link_to pitch.title, pitch_path(pitch) %></p>
 <% end %>

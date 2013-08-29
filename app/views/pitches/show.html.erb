@@ -4,7 +4,7 @@
   <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]) %>
 </div>
 <div>
-  <%= @pitch.score %>
+  Score: <%= @pitch.score %>
 </div>
 <div>
   <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]) %>

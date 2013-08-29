@@ -1,7 +1,7 @@
 class PitchesController < ApplicationController
 
   def index
-    @pitches = Pitch.all
+    @pitches = Pitch.all.sort_by { |p| p.score }.reverse
   end
 
   def show
