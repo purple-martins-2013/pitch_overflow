@@ -1,5 +1,20 @@
 <h1><%= @pitch.title %></h1>
+
+<div>
+  <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]) %>
+</div>
+<div>
+  <%= @pitch.score %>
+</div>
+<div>
+  <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]) %>
+</div>
+
+
 <div><%= @pitch.content %></div>
 <br>
 
 <%= link_to 'All pitches', pitches_path %>
+
+
+<!-- , :action => 'pitches/upvote' -->

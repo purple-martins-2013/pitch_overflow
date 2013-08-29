@@ -17,6 +17,18 @@ class PitchesController < ApplicationController
     redirect_to pitch_path(@pitch)
   end
 
+  def upvote
+    @pitch = Pitch.find(params[:id])
+    @pitch.upvote!
+    redirect_to pitch_path(@pitch)
+  end
+
+  def downvote
+    @pitch = Pitch.find(params[:id])
+    @pitch.downvote!
+    redirect_to pitch_path(@pitch)
+  end
+
   private
 
   def pitch_params

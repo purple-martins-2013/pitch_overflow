@@ -5,6 +5,9 @@ PitchOverflow::Application.routes.draw do
   end
 
   root :to => "pitches#index"
+
+  post 'pitches/upvote' => 'pitches#upvote'
+  post 'pitches/downvote' => 'pitches#downvote'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
