@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829174710) do
+ActiveRecord::Schema.define(version: 20130829175015) do
 
   create_table "pitches", force: true do |t|
     t.string   "title"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20130829174710) do
     t.integer  "pitch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "reactions", ["user_id"], name: "index_reactions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string "username"
