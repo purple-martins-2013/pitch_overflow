@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 group :development, :test do
   gem 'sqlite3'  
+  gem 'dotenv-rails'
 end
 
 gem 'faker'
