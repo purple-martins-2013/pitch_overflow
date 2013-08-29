@@ -9,3 +9,5 @@ Next things to do (ordered by priority):
 5. ajaxify posting a reaction
 6. e2e tests / feature testing
 8. sexy css . damn
+
+- add ordering of pitches and responses tests
