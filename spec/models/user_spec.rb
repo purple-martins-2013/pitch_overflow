@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do 
   context '#initialize' do 
 
-    let(:user) { User.new(username: "test_user", provider: "github", uid: "0000000") }
+    let(:user) { FactoryGirl.create(:user) }
 
     it "must have a username" do
       user.username = nil
