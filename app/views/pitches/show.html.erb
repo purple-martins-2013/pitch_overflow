@@ -13,6 +13,10 @@
 
 <div><%= @pitch.content %></div>
 <br>
+<%= form_for [@pitch, @reaction] do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
 
 <%= link_to 'All pitches', pitches_path %>
 
