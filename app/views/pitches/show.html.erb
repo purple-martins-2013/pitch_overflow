@@ -10,12 +10,30 @@
   <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]) %>
 </div>
 
-
 <div><%= @pitch.content %></div>
+
 <br>
+
+<div>
+  <% if @reactions %>
+    <% @reactions.each do |reaction| %>
+      <p><%= reaction.created_at %></p>
+      <p><%= reaction.content %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
 <%= form_for [@pitch, @reaction] do |f| %>
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
 
 <%= link_to 'All pitches', pitches_path %>
+
+
+
+
+
+
