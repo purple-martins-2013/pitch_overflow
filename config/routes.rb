@@ -8,6 +8,11 @@ PitchOverflow::Application.routes.draw do
 
   post 'pitches/upvote' => 'pitches#upvote'
   post 'pitches/downvote' => 'pitches#downvote'
+
+  get "/auth/:provider/callback" => "sessions#create_from_github"
+  get "/auth/failure" => "sessions#failure_from_github"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
