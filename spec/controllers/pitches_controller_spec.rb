@@ -33,7 +33,7 @@ describe PitchesController do
   describe "pitches#create" do
     it "creates a new Pitch object" do
       post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
-      assigns[:pitch].should be_an_instance_of(Pitch)
+      expect(assigns(:pitch)).to be_an_instance_of(Pitch)
     end
   end
 end
