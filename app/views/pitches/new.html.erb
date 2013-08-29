@@ -1,0 +1,9 @@
+<h1>Make Your Pitch</h1>
+
+<div>
+  <%= form_for @pitch do |f| %>
+    <%= f.text_field :title, placeholder: "Pitch Title" %>
+    <%= f.text_area :content, placeholder: "Pitch Content" %>
+    <%= f.submit "Pitch it!" %>
+  <% end %>
+</div>
