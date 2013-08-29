@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_uid(omniauth["uid"]) || User.create_from_omniauth(omniauth)
     # Hook into your own authentication system!
     #sign_in @user 
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     # This would normally be configured to return to the previous path 
     redirect_to root_path, :notice => "Welcome, #{@user.username}"  
   end
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    session[:user_id] = nil
+    session.clear
     redirect_to root_url, :notice => "Signed Out!"
   end
 
