@@ -24,5 +24,13 @@ describe User do
       user.should be_valid
     end
 
+    it "has many pitches" do
+      user.pitches.should_not raise_error(NoMethodError)
+    end
+
+    it "has many reactions" do
+      user.reactions.should_not raise_error(NoMethodError)
+    end
+
   end
 end
