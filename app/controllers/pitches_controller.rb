@@ -6,6 +6,7 @@ class PitchesController < ApplicationController
 
   def show
     @pitch = Pitch.find(params[:id])
+    @reaction = @pitch.reactions.build
   end
 
   def new
