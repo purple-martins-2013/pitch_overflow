@@ -25,11 +25,11 @@ describe User do
     end
 
     it "has many pitches" do
-      user.pitches.should_not raise_error(NoMethodError)
+      user.should respond_to(:pitches)
     end
 
     it "has many reactions" do
-      user.reactions.should_not raise_error(NoMethodError)
+      user.should respond_to(:reactions)
     end
 
   end
