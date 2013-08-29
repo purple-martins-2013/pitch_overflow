@@ -5,7 +5,6 @@ describe PitchesController do
   let(:pitch) { create(:pitch) }
 
   describe "pitches#index" do
-
     it "@pitches should contain all saved pitches" do
       get :index
       expect(assigns(:pitches)).to eq([pitch])
@@ -15,7 +14,6 @@ describe PitchesController do
       get :index
       expect(response).to render_template("index")
     end
-    
   end
 
   describe "pitches#show" do
@@ -23,7 +21,6 @@ describe PitchesController do
       get :show, { id: pitch.id }
       expect(assigns(:pitch)).to eq pitch
     end
-
   end
 
   describe "pitches#new" do
@@ -33,14 +30,11 @@ describe PitchesController do
     end
   end
 
-  # describe "pitches#create" do
-  #   it "creates a new Pitch object" do
-  #     post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
-  #     assigns[:pitch].should be_a_new(Pitch)
-  #   end
-  # end
+  describe "pitches#create" do
+    it "creates a new Pitch object" do
+      post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
+      assigns[:pitch].should be_an_instance_of(Pitch)
+    end
+  end
 end
 
-
-# post :create, :thing => { :name => "Illegal Value" }
-# assigns(:thing).should be_a_new(Thing).with(:name => nil)
