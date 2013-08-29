@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828215659) do
+ActiveRecord::Schema.define(version: 20130829171714) do
 
   create_table "pitches", force: true do |t|
     t.string   "title"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20130828215659) do
     t.integer  "pitch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "username"
+    t.string "provider"
+    t.string "uid"
   end
 
 end
