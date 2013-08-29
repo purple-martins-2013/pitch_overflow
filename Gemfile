@@ -13,6 +13,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
 # Use sqlite3 as the database for Active Record
 
