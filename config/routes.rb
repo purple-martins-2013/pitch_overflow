@@ -9,8 +9,10 @@ PitchOverflow::Application.routes.draw do
   post 'pitches/upvote' => 'pitches#upvote'
   post 'pitches/downvote' => 'pitches#downvote'
 
+  # get "/auth/:provider" => "sessions#direct_to_github"
   get "/auth/:provider/callback" => "sessions#create_from_github"
   get "/auth/failure" => "sessions#failure_from_github"
+  get "/signout" => "sessions#destroy"#, :as => :signout
 
 
   # The priority is based upon order of creation: first created -> highest priority.
