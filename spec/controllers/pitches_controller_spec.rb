@@ -27,9 +27,20 @@ describe PitchesController do
   end
 
   describe "pitches#new" do
-    xit "should have a successful HTTP response" do
+    it "renders the new template" do
       get :new
-      response.status.should eq 200
+      expect(response).to render_template("new")
     end
   end
+
+  # describe "pitches#create" do
+  #   it "creates a new Pitch object" do
+  #     post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
+  #     assigns[:pitch].should be_a_new(Pitch)
+  #   end
+  # end
 end
+
+
+# post :create, :thing => { :name => "Illegal Value" }
+# assigns(:thing).should be_a_new(Thing).with(:name => nil)
