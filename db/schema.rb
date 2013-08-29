@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829175015) do
+ActiveRecord::Schema.define(version: 20130829183011) do
 
   create_table "pitches", force: true do |t|
     t.string   "title"
@@ -40,5 +40,15 @@ ActiveRecord::Schema.define(version: 20130829175015) do
     t.string "provider"
     t.string "uid"
   end
+
+  create_table "votes", force: true do |t|
+    t.integer "user_id"
+    t.integer "pitch_id"
+    t.boolean "upvote"
+  end
+
+  add_index "votes", ["pitch_id"], name: "index_votes_on_pitch_id"
+  add_index "votes", ["user_id", "pitch_id"], name: "index_votes_on_user_id_and_pitch_id", unique: true
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
