@@ -14,6 +14,8 @@ describe PitchesController do
       get :index
       expect(response).to render_template("index")
     end
+
+    it 'orders pitches by votes in descending order'
   end
 
   describe "pitches#show" do
