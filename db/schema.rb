@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829171714) do
+ActiveRecord::Schema.define(version: 20130829174710) do
 
   create_table "pitches", force: true do |t|
     t.string   "title"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20130829171714) do
     t.integer  "score",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "pitches", ["user_id"], name: "index_pitches_on_user_id"
 
   create_table "reactions", force: true do |t|
     t.string   "content"
