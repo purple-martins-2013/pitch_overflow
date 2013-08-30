@@ -1,7 +1,7 @@
 class PitchesController < ApplicationController
 
   def index
-    @pitches = Pitch.order('score DESC')
+    @pitches = Pitch.all.sort { |x, y| x.score <=> y.score }
   end
 
   def show
@@ -15,19 +15,21 @@ class PitchesController < ApplicationController
   end
 
   def create
-    @pitch = Pitch.create!(pitch_params)
+    @pitch = current_user.pitches.create(pitch_params)
     redirect_to pitch_path(@pitch)
   end
 
   def upvote
     @pitch = Pitch.find(params[:id])
-    @pitch.upvote!
+    p "this is the pitch"
+    p @pitch
+    current_user.upvote!(@pitch)
     redirect_to pitch_path(@pitch)
   end
 
   def downvote
     @pitch = Pitch.find(params[:id])
-    @pitch.downvote!
+    current_user.downvote!(@pitch)
     redirect_to pitch_path(@pitch)
   end
 

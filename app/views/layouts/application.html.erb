@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% unless sign_in? %>
+  <%= link_to "Login", '/auth/github' %>
+<% else %>
+  Welcome <%= current_user.username %>, 
+  <%= link_to "Logout", signout_path %>
+<% end %>
 <%= yield %>
 
 </body>
