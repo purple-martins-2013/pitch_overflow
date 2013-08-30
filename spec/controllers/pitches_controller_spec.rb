@@ -34,9 +34,10 @@ describe PitchesController do
   end
 
   describe "pitches#create" do
-
+    include LoginHelper
     before(:each) do
       @user = create(:user)
+      login(@user)
       post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
     end
 
