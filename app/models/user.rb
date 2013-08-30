@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     User.new.tap do |user|
       user.uid = omniauth["uid"]
       user.username = omniauth["info"]["nickname"]
-      user.provider = "github"
+      user.provider = omniauth['provider']
       # user.email = omniauth["info"]["email"]
       user.save!
     end
