@@ -34,23 +34,41 @@ describe PitchesController do
   end
 
   describe "pitches#create" do
-    include LoginHelper
-    before(:each) do
-      @user = create(:user)
-      login(@user)
-      post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
+    
+    context "when I'm logged in" do
+      include LoginHelper
+      before(:each) do
+        @user = create(:user)
+        login(@user)
+        post :create, { pitch: { title: "My amazing idea", content: "It will be uber successful" }}
+      end
+
+      it "assigns the correct title when creating a pitch" do
+        expect(assigns(:pitch).title).to eq "My Amazing Idea"
+      end
+
+      it "assigns correct content when creating a pitch" do
+        expect(assigns(:pitch).content).to eq "It will be uber successful"
+      end
+
+      it "assigns the correct user when creating a pitch" do
+        expect(assigns(:pitch).user).to eq @user
+      end
     end
 
-    it "assigns the correct title when creating a pitch" do
-      expect(assigns(:pitch).title).to eq "My Amazing Idea"
-    end
+    context "when I'm not logged in" do
+      let(:post_action) do
+        post :create, { pitch: {title: "My amazing idea", content: "It will be uber successful" }}
+      end
 
-    it "assigns correct content when creating a pitch" do
-      expect(assigns(:pitch).content).to eq "It will be uber successful"
-    end
+      it "should redirect to the omniauth authorization page" do
+        post_action
+        expect(response).to redirect_to '/auth/github'
+      end
 
-    it "assigns the correct user when creating a pitch" do
-      expect(assigns(:pitch).user).to eq @user
+      it "should not create a pitch" do
+        expect { post_action }.not_to change { Pitch.count }
+      end
     end
   end
 end
