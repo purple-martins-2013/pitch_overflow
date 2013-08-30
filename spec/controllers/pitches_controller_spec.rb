@@ -63,7 +63,7 @@ describe PitchesController do
 
       it "should redirect to the omniauth authentication page" do
         post_action
-        expect(response).to redirect_to '/auth/github'
+        expect(response).to redirect_to omniauth_path
       end
 
       it "should not create a pitch" do
@@ -104,7 +104,7 @@ describe PitchesController do
 
       it "redirects to omniauth authentication page" do
         post_action
-        expect(response).to redirect_to '/auth/github'
+        expect(response).to redirect_to omniauth_path
       end
     end
   end
@@ -140,7 +140,7 @@ describe PitchesController do
 
       it "redirects to omniauth authentication page" do
         post_action
-        expect(response).to redirect_to '/auth/github'
+        expect(response).to redirect_to omniauth_path
       end
     end
   end

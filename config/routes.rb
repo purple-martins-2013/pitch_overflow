@@ -13,7 +13,7 @@ PitchOverflow::Application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_github"
   get "/auth/failure" => "sessions#failure_from_github"
   get "/signout" => "sessions#destroy"#, :as => :signout
-
+  get "/auth/github" => "sessions#new", as: :omniauth
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

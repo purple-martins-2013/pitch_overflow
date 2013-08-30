@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    redirect_to '/auth/github' unless current_user
+    redirect_to omniauth_path unless current_user
   end
 end

@@ -21,5 +21,9 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "Signed Out!"
   end
 
+  def new
+    redirect_to omniauth_path
+  end
+
 end
   

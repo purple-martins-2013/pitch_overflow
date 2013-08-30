@@ -60,7 +60,7 @@ describe ReactionsController do
 
         it "should redirect to the omniauth authorization page" do
           post_action
-          expect(response).to redirect_to '/auth/github'
+          expect(response).to redirect_to omniauth_path
         end
 
         it "should not create a reaction" do
