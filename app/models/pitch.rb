@@ -7,15 +7,18 @@ class Pitch < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :title
   validates_presence_of :content
+  validates_presence_of :user
 
   def upvote!
-    self.score += 1
-    self.save
+    Vote.create(user: user, pitch: self, upvote: true)
   end
 
   def downvote!
-    self.score -= 1
-    self.save
+    Vote.create(user: user, pitch: self, upvote: false)
+  end
+
+  def score
+    votes.select {|vote| vote.upvote == true }.length - votes.select {|vote| vote.upvote == false }.length
   end
 
   private

@@ -6,6 +6,7 @@ describe PitchesController do
 
   describe "pitches#index" do
     it "@pitches should contain all saved pitches" do
+      pitch
       get :index
       expect(assigns(:pitches)).to eq([pitch])
     end

@@ -1,7 +1,7 @@
 class PitchesController < ApplicationController
 
   def index
-    @pitches = Pitch.order('score DESC')
+    @pitches = Pitch.all.sort { |x, y| x.score <=> y.score }
   end
 
   def show
