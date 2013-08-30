@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
 
   def create_from_github
     omniauth = request.env["omniauth.auth"]

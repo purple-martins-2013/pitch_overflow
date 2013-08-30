@@ -21,13 +21,15 @@ class PitchesController < ApplicationController
 
   def upvote
     @pitch = Pitch.find(params[:id])
-    @pitch.upvote!
+    p "this is the pitch"
+    p @pitch
+    current_user.upvote!(@pitch)
     redirect_to pitch_path(@pitch)
   end
 
   def downvote
     @pitch = Pitch.find(params[:id])
-    @pitch.downvote!
+    current_user.downvote!(@pitch)
     redirect_to pitch_path(@pitch)
   end
 

@@ -9,14 +9,6 @@ class Pitch < ActiveRecord::Base
   validates_presence_of :content
   validates_presence_of :user
 
-  def upvote!
-    Vote.create(user: user, pitch: self, upvote: true)
-  end
-
-  def downvote!
-    Vote.create(user: user, pitch: self, upvote: false)
-  end
-
   def score
     votes.select {|vote| vote.upvote == true }.length - votes.select {|vote| vote.upvote == false }.length
   end

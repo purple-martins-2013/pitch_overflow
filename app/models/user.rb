@@ -6,6 +6,16 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :provider, :uid
 
+  def upvote!(pitch)
+    vote = self.votes.find_or_create_by_pitch_id(pitch.id)
+    vote.update_attribute("upvote", true)
+  end
+
+  def downvote!(pitch)
+    vote = self.votes.find_or_create_by_pitch_id(pitch.id)
+    vote.update_attribute("upvote", false)
+  end
+
   def self.create_from_omniauth(omniauth)
     User.new.tap do |user|
       user.uid = omniauth["uid"]
