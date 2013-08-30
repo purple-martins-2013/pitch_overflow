@@ -34,9 +34,22 @@ describe PitchesController do
   end
 
   describe "pitches#create" do
-    it "creates a new Pitch object" do
+
+    before(:each) do
+      @user = create(:user)
       post :create,{ pitch: { title: "My amazing idea", content: "It will be uber successful" }}
-      expect(assigns(:pitch)).to be_an_instance_of(Pitch)
+    end
+
+    it "assigns the correct title when creating a pitch" do
+      expect(assigns(:pitch).title).to eq "My Amazing Idea"
+    end
+
+    it "assigns correct content when creating a pitch" do
+      expect(assigns(:pitch).content).to eq "It will be uber successful"
+    end
+
+    it "assigns the correct user when creating a pitch" do
+      expect(assigns(:pitch).user).to eq @user
     end
   end
 end

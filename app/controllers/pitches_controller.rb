@@ -15,7 +15,7 @@ class PitchesController < ApplicationController
   end
 
   def create
-    @pitch = Pitch.create!(pitch_params)
+    @pitch = current_user.pitches.create(pitch_params)
     redirect_to pitch_path(@pitch)
   end
 
