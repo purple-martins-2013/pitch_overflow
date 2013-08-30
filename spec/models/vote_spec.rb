@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Vote do
 
 
-  let(:vote) { FactoryGirl.create(:vote) }
+  let(:vote) { FactoryGirl.build(:vote) }
   let(:invalid_vote) { FactoryGirl.build(:invalid_vote) }
 
   context '#initialize' do 
