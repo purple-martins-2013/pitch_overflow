@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 group :development, :test do
   gem 'sqlite3'  
+  gem 'dotenv-rails'
 end
 
 gem 'faker'
@@ -13,6 +14,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
 # Use sqlite3 as the database for Active Record
 
@@ -36,6 +38,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem 'omniauth-github'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -3,9 +3,10 @@ require 'spec_helper'
 describe Reaction do
 
   let(:pitch) { FactoryGirl.create(:pitch) }
+  let(:user) { FactoryGirl.create(:user) }
 
   before do
-    @reaction = pitch.reactions.build(content: 'Example content', score: 2)
+    @reaction = pitch.reactions.build(content: 'Example content', score: 2, user: user)
   end
 
   subject {@reaction}
@@ -13,6 +14,16 @@ describe Reaction do
   it {should respond_to(:content)}
   it {should respond_to(:score)}
   it {should respond_to(:pitch_id)}
+
+  describe "associations" do
+    it "belongs to a pitch" do
+      @reaction.pitch_id.should_not be_nil
+    end
+
+    it "belongs to a user" do
+      @reaction.user_id.should_not be_nil
+    end
+  end
 
   context "when content is blank" do
     before { @reaction.content = nil }
