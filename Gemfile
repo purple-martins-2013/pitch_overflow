@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 group :development, :test do
   gem 'sqlite3'  
   gem 'dotenv-rails'
+  gem 'jasmine-rails'
+  gem 'jasmine-jquery-rails'
 end
 
 gem 'faker'

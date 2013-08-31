@@ -8,6 +8,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/spec/tmp
 
 # Ignore other unneeded files.
 database.yml
