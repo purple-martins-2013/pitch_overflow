@@ -1,10 +1,10 @@
 <h1><%= @pitch.title %></h1>
 
 <div>
-  <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]) %>
+  <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]), id: "upvote", remote: true %>
 </div>
 <div>
-  Score: <%= @pitch.score %>
+  <%= render partial: "pitches/score", locals: { pitch: @pitch.score } %>
 </div>
 <div>
   <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]) %>

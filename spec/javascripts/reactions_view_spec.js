@@ -2,7 +2,6 @@
 //= require add_reaction_widget
 
 
-
 describe("AddReactionWidget", function() {
   var reactionsForm;
   var reactionsContainer;
