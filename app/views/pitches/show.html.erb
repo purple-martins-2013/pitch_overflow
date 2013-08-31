@@ -1,10 +1,15 @@
 <h1><%= @pitch.title %></h1>
 
 <div>
-  <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]) %>
+  <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]), id: "upvote", remote: true %>
 </div>
+<<<<<<< HEAD
 <div id='pitch-score'>
   Score: <%= @pitch.score %>
+=======
+<div>
+  <%= render partial: "pitches/score", locals: { pitch: @pitch.score } %>
+>>>>>>> upvote-is-created-with-AJAX
 </div>
 <div>
   <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]) %>

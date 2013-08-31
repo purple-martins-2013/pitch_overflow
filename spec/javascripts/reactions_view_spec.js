@@ -2,7 +2,10 @@
 //= require add_reaction_widget
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> upvote-is-created-with-AJAX
 describe("AddReactionWidget", function() {
   var reactionsForm;
   var reactionsContainer;
