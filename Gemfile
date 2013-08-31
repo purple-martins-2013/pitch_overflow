@@ -15,6 +15,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'rack_session_access'
 end
 # Use sqlite3 as the database for Active Record
 
