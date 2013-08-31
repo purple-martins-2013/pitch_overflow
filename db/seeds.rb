@@ -6,4 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-5.times { Pitch.create(title: Faker::Company.bs, content: Faker::Lorem.sentences(3).join("\n")) }
+User.create(username: "test_user", provider: "github", uid: "1234567")
+
+5.times { Pitch.create(title: Faker::Company.bs, content: Faker::Lorem.sentences(3).join("\n"), user_id: 1) }
