@@ -3,7 +3,7 @@
 <div>
   <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]) %>
 </div>
-<div>
+<div id='pitch-score'>
   Score: <%= @pitch.score %>
 </div>
 <div>
