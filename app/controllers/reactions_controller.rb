@@ -2,8 +2,8 @@ class ReactionsController < ApplicationController
 
   def create
     pitch = Pitch.find(params[:pitch_id])
-    pitch.reactions.create(reaction_params)
-    redirect_to pitch_path(pitch)
+    reaction = pitch.reactions.create(reaction_params)
+    render partial: "pitches/reaction", locals: { reaction: reaction }
   end
   
   private
