@@ -29,8 +29,8 @@ describe ReactionsController do
           }
         end
 
-        it "should redirect to the show pitch page" do
-          expect(response).to redirect_to(pitch_path(pitch))
+        it "should render a partial to show the comment" do
+          expect(response).to render_template('pitches/_reaction')
         end
 
         it "should create a new reaction" do
