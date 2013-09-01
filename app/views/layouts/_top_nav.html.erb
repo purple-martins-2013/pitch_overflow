@@ -1,0 +1,25 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><%= link_to 'Pitch Overflow', root_path %></a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <% unless sign_in? %>
+        <li class="active"><%= link_to 'Login', omniauth_path %></li>
+      <% else %>
+        <li class="has-dropdown">
+          <a href="#"><%= current_user.username %></a>
+          <ul class="dropdown">
+            <li><%= link_to 'Logout', signout_path %></li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</nav>

@@ -23,13 +23,7 @@
   </head>
 
   <body>
-
-    <% unless sign_in? %>
-      <%= link_to "Login", omniauth_path %>
-    <% else %>
-      Welcome <%= current_user.username %>, 
-      <%= link_to "Logout", signout_path %>
-    <% end %>
+    <%= render 'layouts/top_nav' %>
 
     <%= yield %>
 
