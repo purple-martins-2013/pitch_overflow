@@ -11,8 +11,13 @@
     <ul class="right">
       <li class="divider"></li>
       <% unless sign_in? %>
-        <li class="active"><%= link_to 'Login', omniauth_path %></li>
+        <li><%= link_to 'Login', omniauth_path %></li>
       <% else %>
+        <li class="divider"></li>
+        <li class="has-form">
+          <%= link_to "New Pitch!", new_pitch_path, class: 'small button radius' %>
+        </li>
+        <li class="divider"></li>
         <li class="has-dropdown">
           <a href="#"><%= current_user.username %></a>
           <ul class="dropdown">
