@@ -5,11 +5,11 @@
 </div>
 
 <div id='pitch-score'>
-  <%= render partial: "pitches/score", locals: { pitch: @pitch.score } %>
+  <%= render partial: "score", locals: { pitch: @pitch.score } %>
 </div>
 
 <div>
-  <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]) %>
+  <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]), id: "downvote", remote: true %>
 </div>
 
 <br>
