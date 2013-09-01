@@ -8,7 +8,6 @@ ScoreView.prototype.set = function(score) {
 
 function AddUpVoteWidget(upVoteButton, scoreView) {
   $(upVoteButton).closest('form').on('ajax:success', function(e, score) {
-    debugger
     scoreView.set(score);
   });;
 };

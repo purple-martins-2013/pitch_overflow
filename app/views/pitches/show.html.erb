@@ -19,7 +19,7 @@
 <br>
 
 <div id="pitch_reactions">
-  <%= render partial: "pitches/reaction", collection: @reactions %>
+  <%= render partial: "reaction", collection: @reactions %>
 </div>
 
 <%= form_for [@pitch, @pitch.reactions.build], remote: true do |f| %>
