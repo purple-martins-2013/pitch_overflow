@@ -1,13 +1,11 @@
 class PitchesController < ApplicationController
 
+  before_filter :find_pitch, only: [:upvote, :downvote, :show]
   def index
     @pitches = Pitch.all.sort { |x, y| x.score <=> y.score }.reverse
   end
 
   def show
-    @pitch = Pitch.find(params[:id])
-    @reactions = Reaction.where(pitch_id: params[:id])
-    @reaction = @pitch.reactions.build
   end
 
   def new
@@ -20,13 +18,11 @@ class PitchesController < ApplicationController
   end
 
   def upvote
-    @pitch = Pitch.find(params[:id])
     current_user.upvote!(@pitch)
     render partial: 'score', locals: { score: @pitch.score }
   end
 
   def downvote
-    @pitch = Pitch.find(params[:id])
     current_user.downvote!(@pitch)
     render partial: 'score', locals: { score: @pitch.score }
   end
@@ -35,5 +31,9 @@ class PitchesController < ApplicationController
 
   def pitch_params
     params.require(:pitch).permit(:title, :content)
+  end
+
+  def find_pitch
+    @pitch = Pitch.find(params[:id])
   end
 end

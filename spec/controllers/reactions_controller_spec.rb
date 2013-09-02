@@ -21,7 +21,6 @@ describe ReactionsController do
       end
 
       describe "when I try to create a reaction with complete params" do
-        
         before do
           post :create, { pitch_id: pitch.id, reaction: {
               content: reaction.content
@@ -35,6 +34,10 @@ describe ReactionsController do
 
         it "should create a new reaction" do
           expect(Reaction.last.content).to eq reaction.content
+        end
+
+        it "should make me the onwer of the reaction" do
+          expect(Reaction.last.user).to eq @user
         end
 
         it "should not accept a :score parameter" do
