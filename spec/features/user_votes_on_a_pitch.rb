@@ -14,7 +14,7 @@ describe 'a user votes on a pitch' do
 
       visit pitch_path(pitch)
 
-      expect(page.first('#pitch-score').text).to eq 'Score: 0'
+      expect(page.first('#pitch-score').text).to eq '0'
 
       click_on 'Upvote'
 
