@@ -22,10 +22,10 @@
     <div id="pitch_reactions">
       <%= render partial: "reaction", collection: @reactions %>
     </div>
-    <h3>Your reaction</h3>
+    <h3>Your reaction:</h3>
     <%= form_for [@pitch, @pitch.reactions.build], remote: true do |f| %>
       <%= f.text_area :content %>
-      <%= f.submit class: 'expand button small radius' %>
+      <%= f.submit value: 'Post Your Reaction', class: 'expand button small radius' %>
     <% end %>
   </div>
 </div>
