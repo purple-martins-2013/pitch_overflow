@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe 'user reacts to a pitch' do
+  include LoginHelper
+
   it 'should show the reaction on the page' do
     user = create(:user)
-    # REFACTOR: is this the only way i can set session
-    # variables when using capybara?
-    page.set_rack_session(user_id: user.id)
+    login(user)
+
     pitch = create(:pitch)
 
     visit pitch_path(pitch)
