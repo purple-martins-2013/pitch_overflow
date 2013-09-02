@@ -11,14 +11,14 @@ describe 'logged in user makes a pitch' do
 
     visit pitches_path
 
-    click_on 'Create a New Pitch'
+    click_on 'New Pitch!'
 
     fill_in :pitch_title, with: 'Change The World'
     fill_in :pitch_content, with: 'global solutions with a locally sourced, cloud enabled thing'
     click_on 'Pitch it!'
 
     visit pitches_path
-    expect(page).to have_content 'Create a New Pitch'
+    expect(page).to have_content 'New Pitch!'
   end
 
 end
