@@ -10,8 +10,14 @@ describe 'user reacts to a pitch' do
 
     visit pitch_path(pitch)
 
-    fill_in 'reaction_content', with: 'your idea is freaking phenomenal'
+    within ".new_reaction" do
+      fill_in 'reaction_content', with: 'your idea is freaking phenomenal'
+      click_on 'submit_reaction'
+    end
 
-    expect(page).to have_content 'your idea is freaking phenomenal'
+    within "#reaction-#{Reaction.last.id}" do
+      expect(page).to have_content 'your idea is freaking phenomenal'
+      expect(page).to have_content user.username
+    end
   end
 end
