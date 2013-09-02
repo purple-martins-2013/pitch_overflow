@@ -2,14 +2,10 @@
 //= require add_reaction_widget
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> upvote-is-created-with-AJAX
 describe("AddReactionWidget", function() {
   var reactionsForm;
   var reactionsContainer;
-  
+
   var buildReactionsForm = function() {
     reactionsForm = affix('form');
     reactionsForm.affix('textarea');
@@ -20,7 +16,7 @@ describe("AddReactionWidget", function() {
     reactionsContainer = {
       add: jasmine.createSpy()
     };
-    
+
     buildReactionsForm();
 
     var reactionsWidget = new AddReactionWidget(reactionsForm, reactionsContainer);

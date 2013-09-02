@@ -20,7 +20,7 @@
 <div class="row">
   <div class="small-12 columns">
     <div id="pitch_reactions">
-      <%= render partial: "reaction", collection: @reactions %>
+      <%= render partial: "reaction", collection: @pitch.reactions %>
     </div>
     <h3>Your reaction:</h3>
     <%= form_for [@pitch, @pitch.reactions.build], remote: true do |f| %>

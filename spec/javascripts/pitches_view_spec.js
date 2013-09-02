@@ -1,21 +1,20 @@
 //= require helpers/spec_helper
-//= require upvote_widget
-//= require downvote_widget
+//= require vote_widget
 
-describe("AddUpVoteWidget", function() {
+describe("VoteWidget", function() {
   var scoreView;
-  var upVoteButton;
+  var voteButton;
 
   beforeEach(function() {
     scoreView = {
       set: jasmine.createSpy()
     };
 
-    upVoteButton = affix('button[id="upvote"]');
-    
-    var UpVoteWidget = new AddUpVoteWidget(upVoteButton, scoreView);
+    voteButton = affix('form').affix('button[id="upvote"]');
 
-    $(upVoteButton).trigger("ajax:success", "50");
+    var UpVoteWidget = new VoteWidget(voteButton, scoreView);
+
+    $(voteButton).trigger("ajax:success", "50");
 
   });
 
@@ -23,25 +22,3 @@ describe("AddUpVoteWidget", function() {
     expect(scoreView.set).toHaveBeenCalledWith("50");
   });
 });
-
-describe("AddDownVoteWidget", function() {
-  var scoreView;
-  var downVoteButton;
-
-  beforeEach(function() {
-    scoreView = {
-      set: jasmine.createSpy()
-    };
-
-    downVoteButton = affix('button[id="downvote"]');
-
-    var DownVoteWidget = new AddDownVoteWidget(downVoteButton, scoreView);
-
-    $(downVoteButton).trigger("ajax:success", "blah");
-  });
-
-  it ("sets the score on the scoreView to the response from ajax:success", function() {
-    expect(scoreView.set).toHaveBeenCalledWith("blah");
-  });
-});
-

@@ -1,6 +1,7 @@
 class ReactionsController < ApplicationController
 
   def create
+    debugger;
     pitch = Pitch.find(params[:pitch_id])
     reaction = pitch.reactions.create(reaction_params)
     reaction.user = current_user
