@@ -4,6 +4,6 @@
   <%= form_for @pitch do |f| %>
     <%= f.text_field :title, placeholder: "Pitch Title" %>
     <%= f.text_area :content, placeholder: "Pitch Content" %>
-    <%= f.submit "Pitch it!" %>
+    <%= f.submit "Pitch it!", class: 'large button expand' %>
   <% end %>
 </div>
