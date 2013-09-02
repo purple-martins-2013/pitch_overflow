@@ -16,9 +16,9 @@ describe 'a user votes on a pitch' do
 
       expect(page.first('#pitch-score').text).to eq '0'
 
-      click_on 'Upvote'
+      click_on '+1'
 
-      expect(page.first('#pitch-score').text).to eq 'Score: 1'
+      expect(page.first('h2#score').text).to eq '1'
 
     end
 
