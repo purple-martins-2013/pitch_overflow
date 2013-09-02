@@ -1,38 +1,31 @@
-<h1><%= @pitch.title %></h1>
-
-<div>
-  <%= button_to "Upvote", pitches_upvote_path(:id => params[:id]), id: "upvote", remote: true %>
+<div class="row">
+  <div class="small-12 columns">
+    <div class="small-1 columns">
+      <br>
+      <br>
+      <br>
+      <%= button_to "+1", pitches_upvote_path(:id => params[:id]), id: "upvote", remote: true, class: "button success small radius"  %>
+      <div id='pitch-score'>
+        <%= render partial: "score", locals: { pitch: @pitch.score } %>
+      </div>
+      <%= button_to "-1", pitches_downvote_path(:id => params[:id]), id: "downvote", remote: true, class: "button alert small radius" %>
+    </div>
+    <div class="small-11 columns">
+      <h2 class"subheader"><%= @pitch.title %></h2>
+      <h2 class="subheader"><%= @pitch.content %></h2>
+    </div>
+  </div>
 </div>
-
-<div id='pitch-score'>
-  <%= render partial: "score", locals: { pitch: @pitch.score } %>
+<hr>
+<div class="row">
+  <div class="small-12 columns">
+    <div id="pitch_reactions">
+      <%= render partial: "reaction", collection: @reactions %>
+    </div>
+    <h3>Your reaction</h3>
+    <%= form_for [@pitch, @pitch.reactions.build], remote: true do |f| %>
+      <%= f.text_area :content %>
+      <%= f.submit class: 'expand button small radius' %>
+    <% end %>
+  </div>
 </div>
-
-<div>
-  <%= button_to "Downvote", pitches_downvote_path(:id => params[:id]), id: "downvote", remote: true %>
-</div>
-
-<br>
-
-<div><%= @pitch.content %></div>
-
-<br>
-
-<div id="pitch_reactions">
-  <%= render partial: "reaction", collection: @reactions %>
-</div>
-
-<%= form_for [@pitch, @pitch.reactions.build], remote: true do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>
-
-
-
-<%= link_to 'All pitches', pitches_path %>
-
-
-
-
-
-
