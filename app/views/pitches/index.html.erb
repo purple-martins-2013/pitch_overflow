@@ -1,7 +1,16 @@
-<div>
-  <%= link_to "Create a New Pitch", new_pitch_path %>
-</div>
+
+<h1>Top Pitches</h1>
 
 <% @pitches.each do |pitch| %>
-  <p><%= pitch.score %> <%= link_to pitch.title, pitch_path(pitch) %></p>
+  <div class="row panel">
+
+    <div class="small-1 columns">
+      <h3 class="subheader"><%= pitch.score %></h3>
+    </div>
+    <div class="small-11 columns">
+      <h3 class="subheader"><%= link_to pitch.title, pitch_path(pitch) %></h3>
+    </div>
+
+  </div>
+  <br />
 <% end %>
