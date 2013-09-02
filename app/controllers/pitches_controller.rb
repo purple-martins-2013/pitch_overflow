@@ -20,19 +20,15 @@ class PitchesController < ApplicationController
   end
 
   def upvote
-    puts "is this happening???"
     @pitch = Pitch.find(params[:id])
     current_user.upvote!(@pitch)
-    p @pitch.score
-    # redirect_to pitch_path(@pitch)
-    render partial: 'score', locals: { pitch: @pitch.score }
+    render partial: 'score', locals: { score: @pitch.score }
   end
 
   def downvote
     @pitch = Pitch.find(params[:id])
     current_user.downvote!(@pitch)
-    # redirect_to pitch_path(@pitch)
-    render partial: 'score', locals: { pitch: @pitch.score }
+    render partial: 'score', locals: { score: @pitch.score }
   end
 
   private
