@@ -6,7 +6,7 @@
       <br>
       <%= button_to "+1", pitches_upvote_path(:id => params[:id]), id: "upvote", remote: true, class: "button success small radius"  %>
       <div id='pitch-score'>
-        <%= render partial: "score", locals: { pitch: @pitch.score } %>
+        <%= render partial: "score", locals: { score: @pitch.score } %>
       </div>
       <%= button_to "-1", pitches_downvote_path(:id => params[:id]), id: "downvote", remote: true, class: "button alert small radius" %>
     </div>
