@@ -32,4 +32,6 @@ function Application(locator, redirector) {
       redirector.redirectTo(response.responseText);
     }
   });
+
+  new PitchesPage()
 }
