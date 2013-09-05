@@ -8,9 +8,13 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'jasmine-rails'
   gem 'jasmine-jquery-rails'
+  gem 'faker'
 end
 
-gem 'faker'
+group :production do
+  gem 'pg'
+end
+
 
 group :test do
   gem 'rspec-rails'
@@ -19,7 +23,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rack_session_access'
 end
-# Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
