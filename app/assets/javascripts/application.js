@@ -15,4 +15,23 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function() {
+  new Application('body');
+});
+
+function Application(locator, redirector) {
+  redirector = redirector || {
+    redirectTo: function(loc) {
+      window.location = loc;
+    }
+  }
+
+  $(locator).foundation();
+  $(locator).on('ajax:complete', function(e, response) {
+    if (response.status == 302) {
+      redirector.redirectTo(response.responseText);
+    }
+  });
+
+  new PitchesPage()
+}

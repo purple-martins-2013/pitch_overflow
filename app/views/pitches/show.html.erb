@@ -20,12 +20,12 @@
 <div class="row">
   <div class="small-12 columns">
     <div id="pitch_reactions">
-      <%= render partial: "reaction", collection: @reactions %>
+      <%= render partial: "reaction", collection: @pitch.reactions %>
     </div>
     <h3>Your reaction:</h3>
     <%= form_for [@pitch, @pitch.reactions.build], remote: true do |f| %>
       <%= f.text_area :content %>
-      <%= f.submit value: 'Post Your Reaction', class: 'expand button small radius' %>
+      <%= f.submit id: "submit_reaction", value: 'Post Your Reaction', class: 'submit expand button small radius' %>
     <% end %>
   </div>
 </div>

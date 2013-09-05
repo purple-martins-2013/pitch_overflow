@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    redirect_to omniauth_path unless current_user
+    return if current_user
+    if request.xhr?
+      render status: 302, :text => omniauth_path
+    else
+      redirect_to omniauth_path
+    end
   end
 end
