@@ -1,6 +1,8 @@
-<div id="reaction-<%= reaction.id %>">
-  <p><%= reaction.created_at %></p>
-  <p><%= reaction.content %></p>
-  <p class="reaction-username">Thoughtfully provided by the illustrious <%= reaction.user.username %></p>
+<div id="reaction-<%= reaction.id %>" class='panel'>
+  <blockquote>
+  <%= reaction.content %>
+
+  <cite><%= reaction.user.username %>, <%= time_ago_in_words reaction.created_at %> ago</cite>
+  </blockquote>
 </div>
 
